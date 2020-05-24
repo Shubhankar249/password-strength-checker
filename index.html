@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password strength checker</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+            font-family: sans-serif;
+            color: floralwhite;
+            text-align: center;
+        }
+
+        .strength-meter{
+            height: 2rem;
+            width: 40%;
+            border: aquamarine 3px solid;
+            margin: 0 auto;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strength-meter::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: calc(1% * var(--strength, 0));
+            background-color: blue;
+            transition: width 100ms;
+        }
+
+        .password-input{
+            padding: .25rem .75rem;
+            text-align: center;
+        }
+
+        .reasons >*{
+            margin-top: .4rem;
+            color: lightblue;
+        }
+
+    </style>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <h1>Password security test</h1>
+    <div class="strength-meter" id="strength-meter"></div>
+    <input id="password-input" class="password-input" value="password" type="text" autofocus aria-labelledby="password">
+    <div id="reasons" class="reasons"></div>
+</body>
+</html>
